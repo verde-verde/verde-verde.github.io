@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verde Verde</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #888;
+      margin-bottom: 3rem;
+    }
+
+    .nav-grid {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-btn {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .nav-btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary {
+      background: #2ecc71;
+      color: #000;
+    }
+
+    .btn-secondary {
+      background: #1a1a1a;
+      color: #f0f0f0;
+      border: 1px solid #333;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1.5rem;
+      color: #444;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>Verde Verde</h1>
+    <p>홈페이지에 오신 것을 환영합니다.</p>
+
+    <div class="nav-grid">
+      <a href="font-test.html" class="nav-btn btn-primary">폰트 테스트</a>
+      <a href="#" class="nav-btn btn-secondary">준비 중</a>
+    </div>
+  </div>
+
+  <footer>verde-verde.github.io</footer>
+
+</body>
+</html>
