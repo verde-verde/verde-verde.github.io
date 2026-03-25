@@ -4,103 +4,219 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Verde Verde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green:   #22ac38;
+      --dark:    #212121;
+      --mid:     #363636;
+      --gray:    #919191;
+      --border:  #e5e5e5;
+      --bg:      #ffffff;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f0f0f;
-      color: #f0f0f0;
+      font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--green); }
+
+    nav a {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gray);
+      text-decoration: none;
+      margin-left: 2rem;
+      transition: color .3s ease;
+    }
+
+    nav a:hover, nav a.active { color: var(--green); }
+
+    /* ── Hero ── */
+    .hero {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem;
     }
 
-    .hero {
-      text-align: center;
-      padding: 2rem;
+    .hero-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
     }
 
     .hero h1 {
-      font-size: 4rem;
-      font-weight: 700;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      line-height: 1.05;
       letter-spacing: -0.02em;
-      color: #fff;
-      margin-bottom: 0.5rem;
+      color: var(--dark);
+      margin-bottom: 1.2rem;
     }
 
     .hero p {
-      font-size: 1.1rem;
-      color: #888;
-      margin-bottom: 3rem;
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
     }
 
-    .nav-grid {
+    /* ── Cards ── */
+    .cards {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
     }
 
-    .nav-btn {
-      display: inline-block;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 220px;
+      padding: 1.6rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
       text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: transform 0.15s, box-shadow 0.15s;
+      color: var(--dark);
+      transition: border-color .3s ease, box-shadow .3s ease;
+      background: #fff;
     }
 
-    .nav-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    .card:hover {
+      border-color: var(--green);
+      box-shadow: 0 4px 20px rgba(34,172,56,.12);
     }
 
-    .nav-btn:active {
-      transform: translateY(0);
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
     }
 
-    .btn-primary {
-      background: #2ecc71;
-      color: #000;
+    .card-icon svg { width: 18px; height: 18px; fill: #fff; }
+
+    .card h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
     }
 
-    .btn-secondary {
-      background: #1a1a1a;
-      color: #f0f0f0;
-      border: 1px solid #333;
+    .card p {
+      font-size: 0.78rem;
+      color: var(--gray);
+      line-height: 1.5;
+      margin-bottom: 0;
     }
 
+    .card.disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    /* ── Footer ── */
     footer {
-      position: fixed;
-      bottom: 1.5rem;
-      color: #444;
-      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--gray);
     }
+
+    footer a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color .3s ease;
+    }
+
+    footer a:hover { color: var(--green); }
   </style>
 </head>
 <body>
 
-  <div class="hero">
-    <h1>Verde Verde</h1>
-    <p>홈페이지에 오신 것을 환영합니다.</p>
+<header>
+  <a class="logo" href="index.html">verde<span>.</span>verde</a>
+  <nav>
+    <a href="font-test.html">폰트 테스트</a>
+    <a href="#" style="opacity:.4; pointer-events:none;">준비 중</a>
+  </nav>
+</header>
 
-    <div class="nav-grid">
-      <a href="font-test.html" class="nav-btn btn-primary">폰트 테스트</a>
-      <a href="#" class="nav-btn btn-secondary">준비 중</a>
-    </div>
+<main class="hero">
+  <p class="hero-label">Verde Verde Design</p>
+  <h1>Type &amp;<br>Design<br>Studio</h1>
+  <p>폰트, 타이포그래피, 그리고 디자인을 탐구하는 공간입니다.</p>
+
+  <div class="cards">
+    <a href="font-test.html" class="card">
+      <div class="card-icon">
+        <!-- T 아이콘 -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 4v3h5.5v12h3V7H19V4z"/>
+        </svg>
+      </div>
+      <h3>폰트 테스트</h3>
+      <p>로컬 폰트를 불러와 크기·자간·행간을 실시간으로 확인합니다.</p>
+    </a>
+
+    <a href="#" class="card disabled">
+      <div class="card-icon" style="background:#ccc;">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+      </div>
+      <h3>준비 중</h3>
+      <p>곧 새로운 기능이 추가될 예정입니다.</p>
+    </a>
   </div>
+</main>
 
-  <footer>verde-verde.github.io</footer>
+<footer>
+  <span>© 2025 Verde Verde</span>
+  <a href="https://github.com/verde-verde" target="_blank">GitHub</a>
+</footer>
 
 </body>
 </html>
