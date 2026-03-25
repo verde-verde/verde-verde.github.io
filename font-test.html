@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>폰트 테스트 — Verde Verde</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@300;400;600;700&family=Black+Han+Sans&family=Jua&family=Gamja+Flower&family=Gaegu&family=Stylish&family=East+Sea+Dokdo&family=Cute+Font&family=Gugi&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family: 'Cafe24';          src: url('Fonts/Cafe24.ttf');             font-weight: 400; }
+    @font-face { font-family: 'DOS Saemmul';     src: url('Fonts/DOSSaemmul.ttf');         font-weight: 400; }
+    @font-face { font-family: 'NEXON Lv2 Gothic'; src: url('Fonts/NEXON Lv2 Gothic.ttf'); font-weight: 400; }
+    @font-face { font-family: 'NanumSquare AC';  src: url('Fonts/NanumSquare_acR.ttf');    font-weight: 400; }
+    @font-face { font-family: 'NanumSquare AC';  src: url('Fonts/NanumSquare_acB.ttf');    font-weight: 700; }
+    @font-face { font-family: 'PF Stardust';     src: url('Fonts/PF_Stardust.ttf');        font-weight: 400; }
+    @font-face { font-family: 'Ycomputer';       src: url('Fonts/Ycomputer.ttf');           font-weight: 400; }
+  </style>
   <style>
     * {
       margin: 0;
@@ -274,30 +280,12 @@ abcdefghijklmnopqrstuvwxyz
     <div class="ctrl-group">
       <label>폰트</label>
       <select id="font-select">
-        <optgroup label="한국어 Google Fonts">
-          <option value="'Noto Sans KR', sans-serif">Noto Sans KR</option>
-          <option value="'Noto Serif KR', serif">Noto Serif KR</option>
-          <option value="'Black Han Sans', sans-serif">Black Han Sans</option>
-          <option value="'Jua', sans-serif">Jua</option>
-          <option value="'Gamja Flower', cursive">Gamja Flower</option>
-          <option value="'Gaegu', cursive">Gaegu</option>
-          <option value="'Stylish', sans-serif">Stylish</option>
-          <option value="'East Sea Dokdo', cursive">East Sea Dokdo</option>
-          <option value="'Cute Font', cursive">Cute Font</option>
-          <option value="'Gugi', cursive">Gugi</option>
-        </optgroup>
-        <optgroup label="시스템 폰트">
-          <option value="'Malgun Gothic', sans-serif">맑은 고딕</option>
-          <option value="'Apple SD Gothic Neo', sans-serif">Apple SD Gothic Neo</option>
-          <option value="'NanumGothic', sans-serif">나눔고딕 (설치 시)</option>
-          <option value="'NanumMyeongjo', serif">나눔명조 (설치 시)</option>
-          <option value="Georgia, serif">Georgia</option>
-          <option value="'Times New Roman', serif">Times New Roman</option>
-          <option value="'Courier New', monospace">Courier New</option>
-          <option value="monospace">monospace</option>
-          <option value="sans-serif">sans-serif</option>
-          <option value="serif">serif</option>
-        </optgroup>
+        <option value="'Cafe24', sans-serif">Cafe24</option>
+        <option value="'DOS Saemmul', monospace">DOS Saemmul</option>
+        <option value="'NEXON Lv2 Gothic', sans-serif">NEXON Lv2 Gothic</option>
+        <option value="'NanumSquare AC', sans-serif">NanumSquare AC</option>
+        <option value="'PF Stardust', sans-serif">PF Stardust</option>
+        <option value="'Ycomputer', monospace">Ycomputer</option>
       </select>
     </div>
 
@@ -387,7 +375,7 @@ abcdefghijklmnopqrstuvwxyz
     </div>
 
     <div class="info-bar">
-      <span>폰트: <b id="info-font">Noto Sans KR</b></span>
+      <span>폰트: <b id="info-font">Cafe24</b></span>
       <span>크기: <b id="info-size">48px</b></span>
       <span>굵기: <b id="info-weight">400</b></span>
     </div>
@@ -400,7 +388,7 @@ abcdefghijklmnopqrstuvwxyz
   const previewBg = document.getElementById('preview-bg');
 
   let state = {
-    font: "'Noto Sans KR', sans-serif",
+    font: "'Cafe24', sans-serif",
     size: 48,
     letterSpacing: 0,
     lineHeight: 1.5,
