@@ -9,13 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* ── Local fonts ── */
-    @font-face { font-family: 'Cafe24';           src: url('Fonts/Cafe24.ttf');              font-weight: 400; }
-    @font-face { font-family: 'DOS Saemmul';      src: url('Fonts/DOSSaemmul.ttf');          font-weight: 400; }
-    @font-face { font-family: 'NEXON Lv2 Gothic'; src: url('Fonts/NEXON Lv2 Gothic.ttf');   font-weight: 400; }
-    @font-face { font-family: 'NanumSquare AC';   src: url('Fonts/NanumSquare_acR.ttf');     font-weight: 400; }
-    @font-face { font-family: 'NanumSquare AC';   src: url('Fonts/NanumSquare_acB.ttf');     font-weight: 700; }
-    @font-face { font-family: 'PF Stardust';      src: url('Fonts/PF_Stardust.ttf');         font-weight: 400; }
-    @font-face { font-family: 'Ycomputer';        src: url('Fonts/Ycomputer.ttf');            font-weight: 400; }
+    @font-face { font-family: '박용준투사회보'; src: url('Fonts/Pak_Yong_jun.otf');           font-weight: 400; }
+    @font-face { font-family: '의연체';        src: url('Fonts/온글잎 의연체.ttf');            font-weight: 400; }
+    @font-face { font-family: '영롱체';        src: url('Fonts/온글잎 영롱.ttf');              font-weight: 400; }
+    @font-face { font-family: '이원순체';      src: url('Fonts/Chilgok_lws.otf');             font-weight: 400; }
+    @font-face { font-family: '공부잘하자나';  src: url('Fonts/온글잎 공부잘하자나.ttf');      font-weight: 400; }
+    @font-face { font-family: '영덕바다체';    src: url('Fonts/Yeongdeok Sea.otf');           font-weight: 400; }
+    @font-face { font-family: '강원교육모두';  src: url('Fonts/강원교육모두 Bold.otf');        font-weight: 700; }
+    @font-face { font-family: '쿠키런';        src: url('Fonts/CookieRun Bold.ttf');          font-weight: 700; }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -478,12 +479,14 @@ abcdefghijklmnopqrstuvwxyz
     <div class="ctrl-group">
       <span class="g-label">폰트</span>
       <select id="font-select">
-        <option value="'Cafe24', sans-serif">Cafe24</option>
-        <option value="'DOS Saemmul', monospace">DOS Saemmul</option>
-        <option value="'NEXON Lv2 Gothic', sans-serif">NEXON Lv2 Gothic</option>
-        <option value="'NanumSquare AC', sans-serif">NanumSquare AC</option>
-        <option value="'PF Stardust', sans-serif">PF Stardust</option>
-        <option value="'Ycomputer', monospace">Ycomputer</option>
+        <option value="'박용준투사회보', sans-serif">1. 박용준투사회보</option>
+        <option value="'의연체', sans-serif">2. 의연체</option>
+        <option value="'영롱체', sans-serif">3. 영롱체</option>
+        <option value="'이원순체', sans-serif">4. 이원순체</option>
+        <option value="'공부잘하자나', sans-serif">5. 공부잘하자나</option>
+        <option value="'영덕바다체', sans-serif">6. 영덕바다체</option>
+        <option value="'강원교육모두', sans-serif">7. 강원교육모두 Bold</option>
+        <option value="'쿠키런', sans-serif">8. 쿠키런</option>
       </select>
     </div>
 
@@ -607,14 +610,16 @@ abcdefghijklmnopqrstuvwxyz
 
 <script>
   /* ── 공통 폰트 목록 ── */
+  // stroke: { color, width }  →  -webkit-text-stroke 적용
   const FONTS = [
-    { name: 'Cafe24',           family: "'Cafe24', sans-serif",           weight: 400 },
-    { name: 'DOS Saemmul',      family: "'DOS Saemmul', monospace",        weight: 400 },
-    { name: 'NEXON Lv2 Gothic', family: "'NEXON Lv2 Gothic', sans-serif",  weight: 400 },
-    { name: 'NanumSquare AC',   family: "'NanumSquare AC', sans-serif",    weight: 400 },
-    { name: 'NanumSquare AC B', family: "'NanumSquare AC', sans-serif",    weight: 700 },
-    { name: 'PF Stardust',      family: "'PF Stardust', sans-serif",       weight: 400 },
-    { name: 'Ycomputer',        family: "'Ycomputer', monospace",           weight: 400 },
+    { name: '박용준투사회보', family: "'박용준투사회보', sans-serif", weight: 400, stroke: { color: '#000', width: '0.2pt' } },
+    { name: '의연체',        family: "'의연체', sans-serif",         weight: 400 },
+    { name: '영롱체',        family: "'영롱체', sans-serif",         weight: 400 },
+    { name: '이원순체',      family: "'이원순체', sans-serif",       weight: 400, stroke: { color: '#000', width: '0.2pt' } },
+    { name: '공부잘하자나',  family: "'공부잘하자나', sans-serif",   weight: 400, stroke: { color: '#fff', width: '0.3pt' } },
+    { name: '영덕바다체',    family: "'영덕바다체', sans-serif",     weight: 400, stroke: { color: '#000', width: '0.2pt' } },
+    { name: '강원교육모두',  family: "'강원교육모두', sans-serif",   weight: 700, stroke: { color: '#000', width: '0.2pt' } },
+    { name: '쿠키런',        family: "'쿠키런', sans-serif",         weight: 700 },
   ];
 
   /* ══ DESKTOP ══ */
@@ -719,6 +724,7 @@ abcdefghijklmnopqrstuvwxyz
     pill.className = 'mv-pill';
     pill.style.fontFamily  = f.family;
     pill.style.fontWeight  = f.weight;
+    if (f.stroke) pill.style.webkitTextStroke = f.stroke.width + ' ' + f.stroke.color;
     pill.textContent = DEFAULT_TEXT;
 
     row.appendChild(num);
