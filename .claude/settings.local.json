@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:verdeverde-design.com)"
+      "WebFetch(domain:verdeverde-design.com)",
+      "WebFetch(domain:noonnu.cc)",
+      "Bash(curl -s https://noonnu.cc/index)"
     ]
   }
 }

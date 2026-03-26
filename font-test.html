@@ -6,28 +6,29 @@
   <title>폰트 테스트 — Verde Verde</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     /* ── Local fonts ── */
-    @font-face { font-family: '박용준투사회보'; src: url('Fonts/Pak_Yong_jun.otf');           font-weight: 400; }
-    @font-face { font-family: '의연체';        src: url('Fonts/온글잎 의연체.ttf');            font-weight: 400; }
-    @font-face { font-family: '영롱체';        src: url('Fonts/온글잎 영롱.ttf');              font-weight: 400; }
-    @font-face { font-family: '이원순체';      src: url('Fonts/Chilgok_lws.otf');             font-weight: 400; }
-    @font-face { font-family: '공부잘하자나';  src: url('Fonts/온글잎 공부잘하자나.ttf');      font-weight: 400; }
-    @font-face { font-family: '영덕바다체';    src: url('Fonts/Yeongdeok Sea.otf');           font-weight: 400; }
-    @font-face { font-family: '강원교육모두';  src: url('Fonts/강원교육모두 Bold.otf');        font-weight: 700; }
-    @font-face { font-family: '쿠키런';        src: url('Fonts/CookieRun Bold.ttf');          font-weight: 700; }
+    @font-face { font-family: '박용준투사회보'; src: url('Fonts/Pak_Yong_jun.otf');          font-weight: 400; }
+    @font-face { font-family: '의연체';        src: url('Fonts/온글잎 의연체.ttf');           font-weight: 400; }
+    @font-face { font-family: '영롱체';        src: url('Fonts/온글잎 영롱.ttf');             font-weight: 400; }
+    @font-face { font-family: '이원순체';      src: url('Fonts/Chilgok_lws.otf');            font-weight: 400; }
+    @font-face { font-family: '공부잘하자나';  src: url('Fonts/온글잎 공부잘하자나.ttf');     font-weight: 400; }
+    @font-face { font-family: '영덕바다체';    src: url('Fonts/Yeongdeok Sea.otf');          font-weight: 400; }
+    @font-face { font-family: '강원교육모두';  src: url('Fonts/강원교육모두 Bold.otf');       font-weight: 700; }
+    @font-face { font-family: '쿠키런';        src: url('Fonts/CookieRun Bold.ttf');         font-weight: 700; }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --green:  #22ac38;
-      --dark:   #212121;
-      --mid:    #363636;
-      --gray:   #919191;
-      --border: #e5e5e5;
-      --bg:     #ffffff;
-      --sidebar:#f7f7f7;
+      --green:   #22ac38;
+      --dark:    #212121;
+      --gray:    #888;
+      --border:  #e8e8e8;
+      --bg:      #f5f5f5;
+      --card-bg: #ffffff;
+      --header-h: 56px;
+      --ctrl-h:   56px;
     }
 
     body {
@@ -35,26 +36,24 @@
       background: var(--bg);
       color: var(--dark);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     /* ══════════════════════════════
-       DESKTOP LAYOUT
+       DESKTOP
     ══════════════════════════════ */
 
     /* ── Header ── */
-    header {
-      height: 64px;
+    .site-header {
+      height: var(--header-h);
       display: flex;
       align-items: center;
-      gap: 1.2rem;
-      padding: 0 32px;
-      border-bottom: 1px solid var(--border);
+      gap: 1rem;
+      padding: 0 2rem;
       background: #fff;
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 30;
     }
 
     .logo {
@@ -64,250 +63,206 @@
       color: var(--dark);
       text-decoration: none;
     }
-
     .logo span { color: var(--green); }
 
-    .header-sep {
-      width: 1px;
-      height: 18px;
-      background: var(--border);
-    }
+    .header-sep { width: 1px; height: 16px; background: var(--border); }
 
-    .header-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--gray);
-    }
+    .header-title { font-size: 0.82rem; font-weight: 700; color: var(--gray); }
 
-    /* ── Layout ── */
-    .layout {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-      height: calc(100vh - 64px);
-    }
-
-    /* ── Sidebar ── */
-    .sidebar {
-      width: 280px;
-      min-width: 240px;
-      background: var(--sidebar);
-      border-right: 1px solid var(--border);
-      padding: 1.4rem 1.2rem;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1.4rem;
-    }
-
-    .ctrl-group > .g-label {
-      display: block;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 0.5rem;
-    }
-
-    select {
-      width: 100%;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      color: var(--dark);
-      padding: 0.5rem 0.7rem;
-      font-size: 0.85rem;
-      font-family: inherit;
-      outline: none;
-      cursor: pointer;
-      transition: border-color .3s ease;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23919191' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-      padding-right: 28px;
-    }
-
-    select:focus { border-color: var(--green); }
-
-    textarea {
-      width: 100%;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      color: var(--dark);
-      padding: 0.5rem 0.7rem;
-      font-size: 0.85rem;
-      font-family: inherit;
-      outline: none;
-      resize: vertical;
-      min-height: 88px;
-      line-height: 1.5;
-      transition: border-color .3s ease;
-    }
-
-    textarea:focus { border-color: var(--green); }
-
-    .slider-row {
+    /* ── Control bar ── */
+    .ctrl-bar {
+      height: var(--ctrl-h);
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.8rem;
+      padding: 0 2rem;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: var(--header-h);
+      z-index: 20;
     }
 
-    .slider-row input[type="range"] {
+    /* 텍스트 입력 */
+    .ctrl-input-wrap {
+      position: relative;
       flex: 1;
-      accent-color: var(--green);
-      cursor: pointer;
-      height: 3px;
+      max-width: 420px;
     }
 
-    .slider-row .val {
-      font-size: 0.78rem;
-      color: var(--gray);
-      min-width: 46px;
-      text-align: right;
-      font-weight: 700;
-    }
-
-    .chip-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-
-    .chip {
-      padding: 0.25rem 0.65rem;
-      border-radius: 2px;
-      border: 1px solid var(--border);
-      background: #fff;
-      color: var(--gray);
-      font-size: 0.78rem;
-      font-family: inherit;
-      font-weight: 700;
-      cursor: pointer;
-      user-select: none;
-      transition: background .2s ease, color .2s ease, border-color .2s ease;
-    }
-
-    .chip:hover { border-color: var(--green); color: var(--green); }
-
-    .chip.active {
-      background: var(--green);
-      color: #fff;
-      border-color: var(--green);
-    }
-
-    .align-group { display: flex; gap: 0.35rem; }
-
-    .align-btn {
-      flex: 1;
-      padding: 0.35rem;
-      border-radius: 2px;
-      border: 1px solid var(--border);
-      background: #fff;
-      color: var(--gray);
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: background .2s, color .2s, border-color .2s;
-    }
-
-    .align-btn:hover { border-color: var(--green); color: var(--green); }
-
-    .align-btn.active {
-      background: var(--green);
-      color: #fff;
-      border-color: var(--green);
-    }
-
-    .color-pair { display: flex; gap: 0.7rem; }
-    .color-item { flex: 1; }
-
-    .color-item .sub-label {
-      display: block;
-      font-size: 0.68rem;
-      color: var(--gray);
-      margin-bottom: 0.3rem;
-      font-weight: 700;
-    }
-
-    .color-item input[type="color"] {
+    .ctrl-input {
       width: 100%;
-      height: 34px;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      cursor: pointer;
-      padding: 2px;
+      padding: 0.48rem 2.2rem 0.48rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: var(--dark);
+      outline: none;
       background: #fff;
+      transition: border-color .2s;
+    }
+    .ctrl-input:focus { border-color: var(--green); }
+    .ctrl-input::placeholder { color: #bbb; }
+
+    .ctrl-input-icon {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+      pointer-events: none;
     }
 
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-    }
+    /* 크기 ─/+ */
+    .ctrl-sep { width: 1px; height: 20px; background: var(--border); flex-shrink: 0; }
 
-    .main {
-      flex: 1;
+    .ctrl-label { font-size: 0.78rem; color: var(--gray); white-space: nowrap; flex-shrink: 0; }
+
+    .size-control { display: flex; align-items: center; }
+
+    .size-btn {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--dark);
+      font-size: 1.1rem;
+      cursor: pointer;
       display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .preview-area {
-      flex: 1;
-      overflow-y: auto;
-      padding: 4rem 3rem;
-      display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
-      background: #fff;
+      transition: background .15s, border-color .15s;
+      flex-shrink: 0;
     }
+    .size-btn:first-child { border-radius: 999px 0 0 999px; }
+    .size-btn:last-child  { border-radius: 0 999px 999px 0; border-left: none; }
+    .size-btn:hover { background: #f0f0f0; border-color: #ccc; }
 
-    #preview-text {
-      width: 100%;
-      max-width: 860px;
-      word-break: break-word;
-      white-space: pre-wrap;
-      line-height: 1.5;
+    .size-input {
+      width: 52px;
+      height: 32px;
+      border: 1px solid var(--border);
+      border-left: none;
+      border-right: none;
+      text-align: center;
+      font-size: 0.82rem;
+      font-family: inherit;
+      color: var(--dark);
+      background: #fafafa;
       outline: none;
-      min-height: 4rem;
-      caret-color: var(--green);
+      -moz-appearance: textfield;
+    }
+    .size-input::-webkit-outer-spin-button,
+    .size-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+    /* ── Card grid ── */
+    .cards-wrap {
+      padding: 1.8rem 2rem 3rem;
     }
 
-    .info-bar {
-      border-top: 1px solid var(--border);
-      padding: 0.6rem 2rem;
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      max-width: 1400px;
+    }
+
+    /* ── Font card ── */
+    .font-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: box-shadow .25s ease, border-color .25s ease;
+      cursor: default;
+    }
+
+    .font-card:hover {
+      box-shadow: 0 4px 18px rgba(0,0,0,0.09);
+      border-color: #d0d0d0;
+    }
+
+    /* 카드 헤더 */
+    .card-head {
+      padding: 0.85rem 1.1rem 0.7rem;
       display: flex;
       align-items: center;
-      gap: 1.8rem;
-      background: var(--sidebar);
-      font-size: 0.75rem;
+      gap: 0.5rem;
+    }
+
+    .card-num {
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--gray);
+      flex-shrink: 0;
     }
 
-    .info-bar span b { color: var(--dark); font-weight: 700; }
-
-    .info-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--green);
+    .card-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--dark);
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #ccc; }
+    .card-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 2px;
+      border: 1px solid;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .card-badge.black { color: #555; border-color: #ccc; background: #f5f5f5; }
+    .card-badge.white { color: #888; border-color: #ddd; background: #f9f9f9; }
+
+    /* 구분선 */
+    .card-divider {
+      height: 1px;
+      background: var(--border);
+      transition: background .25s;
+    }
+    .font-card:hover .card-divider { background: var(--green); }
+
+    /* 프리뷰 텍스트 */
+    .card-preview {
+      flex: 1;
+      padding: 1rem 1.1rem;
+      min-height: 110px;
+      overflow: hidden;
+    }
+
+    .card-text {
+      width: 100%;
+      height: 100%;
+      min-height: 90px;
+      outline: none;
+      border: none;
+      resize: none;
+      background: transparent;
+      font-size: 30px;
+      line-height: 1.4;
+      color: var(--dark);
+      word-break: break-all;
+      overflow: hidden;
+    }
 
     /* ══════════════════════════════
-       MOBILE LAYOUT
+       MOBILE
     ══════════════════════════════ */
 
     .mobile-view { display: none; }
 
     @media (max-width: 680px) {
-      header { display: none; }
-      .layout { display: none; }
+      .site-header { display: none; }
+      .desktop-view { display: none; }
 
       body { background: #fff; }
 
@@ -317,7 +272,6 @@
         min-height: 100vh;
       }
 
-      /* 상단 그라디언트 영역 */
       .mv-hero {
         background: linear-gradient(180deg, #c8e0ec 0%, #e8f4f9 60%, #ffffff 100%);
         padding: 3rem 1.5rem 2rem;
@@ -337,11 +291,9 @@
         font-size: 0.95rem;
         color: #666;
         font-family: 'Noto Sans KR', sans-serif;
-        font-weight: 400;
         line-height: 1.6;
       }
 
-      /* 입력창 */
       .mv-input-wrap {
         padding: 0 1.5rem 1.5rem;
         background: linear-gradient(180deg, #e8f4f9 0%, #ffffff 100%);
@@ -359,12 +311,9 @@
         background: #fff;
         transition: border-color .2s;
       }
-
       .mv-input:focus { border-color: var(--green); }
-
       .mv-input::placeholder { color: #bbb; }
 
-      /* 안내문구 */
       .mv-notice {
         padding: 1.2rem 2rem 1.5rem;
         text-align: center;
@@ -373,14 +322,8 @@
         line-height: 1.8;
         font-family: 'Noto Sans KR', sans-serif;
       }
+      .mv-notice em { font-style: normal; color: var(--green); font-weight: 700; }
 
-      .mv-notice em {
-        font-style: normal;
-        color: var(--green);
-        font-weight: 700;
-      }
-
-      /* 폰트 리스트 */
       .mv-list {
         padding: 0.5rem 1.5rem;
         display: flex;
@@ -389,11 +332,7 @@
         flex: 1;
       }
 
-      .mv-row {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
+      .mv-row { display: flex; align-items: center; gap: 1rem; }
 
       .mv-num {
         font-size: 1rem;
@@ -421,9 +360,8 @@
         line-height: 1.4;
       }
 
-      /* 하단 푸터 */
       .mv-footer {
-        padding: 2.5rem 1.5rem 2.5rem;
+        padding: 2.5rem 1.5rem;
         text-align: center;
       }
 
@@ -446,137 +384,43 @@
         text-align: center;
         border-radius: 8px;
         text-decoration: none;
-        transition: background .2s;
       }
-
-      .mv-footer a:active { background: #1a8e2e; }
     }
   </style>
 </head>
 <body>
 
 <!-- ══ DESKTOP ══ -->
-<header>
+<header class="site-header">
   <a class="logo" href="index.html">verde<span>.</span>verde</a>
   <div class="header-sep"></div>
-  <span class="header-title">폰트 테스트</span>
+  <span class="header-title">폰트 미리보기</span>
 </header>
 
-<div class="layout">
+<div class="desktop-view">
 
-  <aside class="sidebar">
-
-    <div class="ctrl-group">
-      <span class="g-label">테스트 텍스트</span>
-      <textarea id="input-text">가나다라마바사아자차카타파하
-ABCDEFGHIJKLMNOPQRSTUVWXYZ
-abcdefghijklmnopqrstuvwxyz
-0123456789 !@#$%^&*()</textarea>
+  <!-- 컨트롤 바 -->
+  <div class="ctrl-bar">
+    <div class="ctrl-input-wrap">
+      <input class="ctrl-input" id="dt-input" type="text" placeholder="문구를 입력하고 폰트를 미리보세요">
+      <svg class="ctrl-input-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+      </svg>
     </div>
 
-    <hr class="divider">
+    <div class="ctrl-sep"></div>
 
-    <div class="ctrl-group">
-      <span class="g-label">폰트</span>
-      <select id="font-select">
-        <option value="'박용준투사회보', sans-serif">1. 박용준투사회보</option>
-        <option value="'의연체', sans-serif">2. 의연체</option>
-        <option value="'영롱체', sans-serif">3. 영롱체</option>
-        <option value="'이원순체', sans-serif">4. 이원순체</option>
-        <option value="'공부잘하자나', sans-serif">5. 공부잘하자나</option>
-        <option value="'영덕바다체', sans-serif">6. 영덕바다체</option>
-        <option value="'강원교육모두', sans-serif">7. 강원교육모두 Bold</option>
-        <option value="'쿠키런', sans-serif">8. 쿠키런</option>
-      </select>
+    <span class="ctrl-label">크기</span>
+    <div class="size-control">
+      <button class="size-btn" id="dt-size-minus" type="button">−</button>
+      <input class="size-input" id="dt-size" type="number" value="30" min="10" max="120">
+      <button class="size-btn" id="dt-size-plus" type="button">+</button>
     </div>
+  </div>
 
-    <div class="ctrl-group">
-      <span class="g-label">크기</span>
-      <div class="slider-row">
-        <input type="range" id="font-size" min="8" max="200" value="48">
-        <span class="val" id="font-size-val">48px</span>
-      </div>
-    </div>
-
-    <div class="ctrl-group">
-      <span class="g-label">자간 (letter-spacing)</span>
-      <div class="slider-row">
-        <input type="range" id="letter-spacing" min="-10" max="30" value="0" step="0.5">
-        <span class="val" id="letter-spacing-val">0px</span>
-      </div>
-    </div>
-
-    <div class="ctrl-group">
-      <span class="g-label">행간 (line-height)</span>
-      <div class="slider-row">
-        <input type="range" id="line-height" min="0.8" max="4" value="1.5" step="0.05">
-        <span class="val" id="line-height-val">1.50</span>
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <div class="ctrl-group">
-      <span class="g-label">굵기 (font-weight)</span>
-      <div class="chip-group" id="weight-group">
-        <span class="chip" data-weight="100">100</span>
-        <span class="chip" data-weight="200">200</span>
-        <span class="chip" data-weight="300">300</span>
-        <span class="chip active" data-weight="400">400</span>
-        <span class="chip" data-weight="500">500</span>
-        <span class="chip" data-weight="600">600</span>
-        <span class="chip" data-weight="700">700</span>
-        <span class="chip" data-weight="800">800</span>
-        <span class="chip" data-weight="900">900</span>
-      </div>
-    </div>
-
-    <div class="ctrl-group">
-      <span class="g-label">스타일</span>
-      <div class="chip-group">
-        <span class="chip active" id="style-normal" onclick="setStyle('normal')">Normal</span>
-        <span class="chip" id="style-italic" onclick="setStyle('italic')">Italic</span>
-      </div>
-    </div>
-
-    <div class="ctrl-group">
-      <span class="g-label">정렬</span>
-      <div class="align-group">
-        <button class="align-btn active" onclick="setAlign('left', this)" title="왼쪽">&#9664;</button>
-        <button class="align-btn" onclick="setAlign('center', this)" title="가운데">&#9632;</button>
-        <button class="align-btn" onclick="setAlign('right', this)" title="오른쪽">&#9654;</button>
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <div class="ctrl-group">
-      <span class="g-label">색상</span>
-      <div class="color-pair">
-        <div class="color-item">
-          <span class="sub-label">글자색</span>
-          <input type="color" id="text-color" value="#212121">
-        </div>
-        <div class="color-item">
-          <span class="sub-label">배경색</span>
-          <input type="color" id="bg-color" value="#ffffff">
-        </div>
-      </div>
-    </div>
-
-  </aside>
-
-  <div class="main">
-    <div class="preview-area" id="preview-bg">
-      <div id="preview-text" contenteditable="true"></div>
-    </div>
-    <div class="info-bar">
-      <div class="info-dot"></div>
-      <span>폰트: <b id="info-font">Cafe24</b></span>
-      <span>크기: <b id="info-size">48px</b></span>
-      <span>굵기: <b id="info-weight">400</b></span>
-      <span>자간: <b id="info-ls">0px</b></span>
-    </div>
+  <!-- 카드 그리드 -->
+  <div class="cards-wrap">
+    <div class="cards-grid" id="dt-grid"></div>
   </div>
 
 </div>
@@ -609,8 +453,7 @@ abcdefghijklmnopqrstuvwxyz
 </div>
 
 <script>
-  /* ── 공통 폰트 목록 ── */
-  // stroke: { color, width }  →  -webkit-text-stroke 적용
+  /* ── 폰트 목록 ── */
   const FONTS = [
     { name: '박용준투사회보', family: "'박용준투사회보', sans-serif", weight: 400, stroke: { color: '#000', width: '0.2pt' } },
     { name: '의연체',        family: "'의연체', sans-serif",         weight: 400 },
@@ -622,101 +465,95 @@ abcdefghijklmnopqrstuvwxyz
     { name: '쿠키런',        family: "'쿠키런', sans-serif",         weight: 700 },
   ];
 
+  const DEFAULT_TEXT = '가나다라마바사';
+
   /* ══ DESKTOP ══ */
-  const preview   = document.getElementById('preview-text');
-  const previewBg = document.getElementById('preview-bg');
+  const dtGrid   = document.getElementById('dt-grid');
+  const dtInput  = document.getElementById('dt-input');
+  const dtSizeEl = document.getElementById('dt-size');
+  let dtSize = 30;
 
-  const state = {
-    font: "'Cafe24', sans-serif",
-    size: 48,
-    letterSpacing: 0,
-    lineHeight: 1.5,
-    weight: 400,
-    style: 'normal',
-    align: 'left',
-    color: '#212121',
-    bg: '#ffffff',
-  };
+  // 카드 생성
+  const cardTexts = [];
+  FONTS.forEach((f, i) => {
+    const card = document.createElement('div');
+    card.className = 'font-card';
 
-  function applyAll() {
-    preview.style.fontFamily    = state.font;
-    preview.style.fontSize      = state.size + 'px';
-    preview.style.letterSpacing = state.letterSpacing + 'px';
-    preview.style.lineHeight    = state.lineHeight;
-    preview.style.fontWeight    = state.weight;
-    preview.style.fontStyle     = state.style;
-    preview.style.textAlign     = state.align;
-    preview.style.color         = state.color;
-    previewBg.style.background  = state.bg;
+    // 테두리 뱃지
+    let badgeHtml = '';
+    if (f.stroke) {
+      const cls   = f.stroke.color === '#fff' ? 'white' : 'black';
+      const label = f.stroke.color === '#fff' ? `흰테두리 ${f.stroke.width}` : `검정테두리 ${f.stroke.width}`;
+      badgeHtml = `<span class="card-badge ${cls}">${label}</span>`;
+    }
 
-    const sel = document.getElementById('font-select');
-    document.getElementById('info-font').textContent   = sel.options[sel.selectedIndex].text;
-    document.getElementById('info-size').textContent   = state.size + 'px';
-    document.getElementById('info-weight').textContent = state.weight;
-    document.getElementById('info-ls').textContent     = state.letterSpacing + 'px';
-  }
+    card.innerHTML = `
+      <div class="card-head">
+        <span class="card-num">${i + 1}번</span>
+        <span class="card-name">${f.name}</span>
+        ${badgeHtml}
+      </div>
+      <div class="card-divider"></div>
+      <div class="card-preview">
+        <div class="card-text"
+             contenteditable="true"
+             spellcheck="false"
+             data-idx="${i}"></div>
+      </div>`;
 
-  const inputText = document.getElementById('input-text');
-  inputText.addEventListener('input', () => { preview.textContent = inputText.value; });
-  preview.addEventListener('input', () => { inputText.value = preview.textContent; });
-  preview.textContent = inputText.value;
+    dtGrid.appendChild(card);
 
-  document.getElementById('font-select').addEventListener('change', e => {
-    state.font = e.target.value; applyAll();
+    const textEl = card.querySelector('.card-text');
+    textEl.style.fontFamily  = f.family;
+    textEl.style.fontWeight  = f.weight;
+    if (f.stroke) textEl.style.webkitTextStroke = f.stroke.width + ' ' + f.stroke.color;
+    textEl.textContent = DEFAULT_TEXT;
+    cardTexts.push(textEl);
+
+    // 개별 편집 시 글로벌 입력과 동기화 해제
+    textEl.addEventListener('input', () => {});
   });
 
-  function bindSlider(id, valId, key, suffix, dec) {
-    const el = document.getElementById(id);
-    const valEl = document.getElementById(valId);
-    el.addEventListener('input', () => {
-      state[key] = parseFloat(el.value);
-      valEl.textContent = parseFloat(el.value).toFixed(dec) + suffix;
-      applyAll();
-    });
+  function applyTextToAll(text) {
+    const t = text || DEFAULT_TEXT;
+    cardTexts.forEach(el => { el.textContent = t; });
   }
-  bindSlider('font-size',      'font-size-val',      'size',          'px', 0);
-  bindSlider('letter-spacing', 'letter-spacing-val', 'letterSpacing', 'px', 1);
-  bindSlider('line-height',    'line-height-val',     'lineHeight',    '',   2);
 
-  document.getElementById('weight-group').addEventListener('click', e => {
-    const chip = e.target.closest('.chip');
-    if (!chip) return;
-    document.querySelectorAll('#weight-group .chip').forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    state.weight = parseInt(chip.dataset.weight);
-    applyAll();
+  function applySizeToAll(size) {
+    cardTexts.forEach(el => { el.style.fontSize = size + 'px'; });
+  }
+
+  dtInput.addEventListener('input', () => applyTextToAll(dtInput.value));
+
+  dtSizeEl.addEventListener('change', () => {
+    dtSize = Math.min(120, Math.max(10, parseInt(dtSizeEl.value) || 30));
+    dtSizeEl.value = dtSize;
+    applySizeToAll(dtSize);
   });
 
-  function setStyle(s) {
-    state.style = s;
-    document.getElementById('style-normal').classList.toggle('active', s === 'normal');
-    document.getElementById('style-italic').classList.toggle('active', s === 'italic');
-    applyAll();
-  }
+  document.getElementById('dt-size-minus').addEventListener('click', () => {
+    dtSize = Math.max(10, dtSize - 2);
+    dtSizeEl.value = dtSize;
+    applySizeToAll(dtSize);
+  });
 
-  function setAlign(a, btn) {
-    state.align = a;
-    document.querySelectorAll('.align-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    applyAll();
-  }
+  document.getElementById('dt-size-plus').addEventListener('click', () => {
+    dtSize = Math.min(120, dtSize + 2);
+    dtSizeEl.value = dtSize;
+    applySizeToAll(dtSize);
+  });
 
-  document.getElementById('text-color').addEventListener('input', e => { state.color = e.target.value; applyAll(); });
-  document.getElementById('bg-color').addEventListener('input', e => { state.bg = e.target.value; applyAll(); });
-
-  applyAll();
+  applySizeToAll(dtSize);
 
   /* ══ MOBILE ══ */
   const mvList  = document.getElementById('mv-list');
   const mvInput = document.getElementById('mv-input');
-  const DEFAULT_TEXT = '가나다라마바사';
 
-  // 폰트 row 생성
   FONTS.forEach((f, i) => {
-    const row = document.createElement('div');
+    const row  = document.createElement('div');
     row.className = 'mv-row';
 
-    const num = document.createElement('span');
+    const num  = document.createElement('span');
     num.className = 'mv-num';
     num.textContent = (i + 1) + '번';
 
@@ -732,12 +569,10 @@ abcdefghijklmnopqrstuvwxyz
     mvList.appendChild(row);
   });
 
-  function updateMobilePills(text) {
-    const t = text.trim() || DEFAULT_TEXT;
+  mvInput.addEventListener('input', () => {
+    const t = mvInput.value.trim() || DEFAULT_TEXT;
     document.querySelectorAll('.mv-pill').forEach(p => { p.textContent = t; });
-  }
-
-  mvInput.addEventListener('input', () => updateMobilePills(mvInput.value));
+  });
 </script>
 
 </body>
