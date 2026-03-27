@@ -124,19 +124,21 @@
     }
 
     .font-pill {
-      flex: 1;
-      padding: 0.75rem 1.6rem;
+      width: 25mm;
+      height: 12mm;
+      flex-shrink: 0;
+      padding: 0;
       border: 1.5px solid #ddd;
       border-radius: 999px;
       background: #fff;
       font-size: 1.2rem;
       color: var(--dark);
       text-align: center;
-      min-height: 54px;
       display: flex;
       align-items: center;
       justify-content: center;
-      word-break: break-all;
+      overflow: hidden;
+      white-space: nowrap;
       line-height: 1.4;
       transition: border-color .2s;
     }
@@ -187,7 +189,7 @@
       .page-footer { max-width: 600px; }
 
       .font-num { font-size: 1.05rem; min-width: 44px; }
-      .font-pill { font-size: 1.35rem; min-height: 60px; padding: 0.85rem 2rem; }
+      .font-pill { font-size: 1.35rem; }
     }
   </style>
 </head>
@@ -213,7 +215,7 @@
 
   <div class="page-footer">
     <p>폰트 선택이 어려우시다면, 빠르고 쉽게 알려드릴게요!</p>
-    <a class="footer-btn" href="index.html">폰트 선택 가이드 보러가기</a>
+    <a class="footer-btn" href="https://www.verdeverde-design.com/32/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=13162917&t=board" target="_blank" rel="noopener">폰트 선택 가이드 보러가기</a>
   </div>
 
 </div>
@@ -247,17 +249,34 @@
     pill.style.fontFamily  = f.family;
     pill.style.fontWeight  = f.weight;
     if (f.stroke) pill.style.webkitTextStroke = f.stroke.width + ' ' + f.stroke.color;
-    pill.textContent = DEFAULT;
+    const inner = document.createElement('span');
+    inner.textContent = DEFAULT;
+    pill.appendChild(inner);
 
     row.appendChild(num);
     row.appendChild(pill);
     list.appendChild(row);
+    fitPill(pill);
     pills.push(pill);
   });
 
+  function fitPill(pill) {
+    const inner = pill.querySelector('span');
+    const maxPx = 30, minPx = 5;
+    let size = maxPx;
+    pill.style.fontSize = size + 'px';
+    while (size > minPx && (inner.offsetWidth > pill.clientWidth || inner.offsetHeight > pill.clientHeight)) {
+      size -= 0.5;
+      pill.style.fontSize = size + 'px';
+    }
+  }
+
   document.getElementById('main-input').addEventListener('input', function () {
     const t = this.value.trim() || DEFAULT;
-    pills.forEach(p => { p.textContent = t; });
+    pills.forEach(p => {
+      p.querySelector('span').textContent = t;
+      fitPill(p);
+    });
   });
 </script>
 
