@@ -3,7 +3,12 @@
     "allow": [
       "WebFetch(domain:verdeverde-design.com)",
       "WebFetch(domain:noonnu.cc)",
-      "Bash(curl -s https://noonnu.cc/index)"
+      "Bash(curl -s https://noonnu.cc/index)",
+      "Bash(xxd \"C:/stopresent/Sources/verde-verde.github.io/Fonts/6_Yeongdeok_Sea.otf\")",
+      "Bash(python3:*)",
+      "Bash(pip install:*)",
+      "Bash(mv -f 6_Yeongdeok_Sea_fixed.otf 6_Yeongdeok_Sea.otf)",
+      "Bash(mv -f 7_Gangwon_Education_All_Bold_fixed.otf 7_Gangwon_Education_All_Bold.otf)"
     ]
   }
 }
